@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { MdDownloadForOffline } from "react-icons/md";
 import { Link, useParams } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import toast, { Toaster } from "react-hot-toast";
 
 import { client, urlFor } from "../client";
 import MasonryLayout from "./MasonryLayout";
@@ -54,7 +56,31 @@ const PinDetail = ({ user }) => {
             fetchPinDetails();
             setComment("");
             setAddingComment(false);
+
+            toast.success("successfully added your Comment", {
+              duration: 6000,
+              style: {
+                background: "#fff",
+                color: "#015871",
+                fontWeight: "bolder",
+                fontSize: "17px",
+                padding: "10px",
+                textAlign: "center",
+              },
+            });
           });
+      } else {
+        toast.error("Your Comment Field is Empty", {
+          duration: 6000,
+          style: {
+            background: "#fff",
+            color: "#015871",
+            fontWeight: "bolder",
+            fontSize: "17px",
+            padding: "10px",
+            textAlign: "center",
+          },
+        });
       }
     } catch (error) {
       console.log(error);
@@ -71,6 +97,7 @@ const PinDetail = ({ user }) => {
 
   return (
     <>
+      <Toaster />
       <div
         className="flex xl:flex-row flex-col m-auto bg-white"
         style={{ maxWidth: "1500px", borderRadius: "32px" }}
@@ -94,7 +121,7 @@ const PinDetail = ({ user }) => {
               </a>
             </div>
             <a href={pinDetail.destination} target="_blank" rel="noreferrer">
-              {pinDetail.destination?.slice(8)}
+              {pinDetail.destination?.slice(8, 17)}
             </a>
           </div>
           <div className="">
@@ -148,13 +175,23 @@ const PinDetail = ({ user }) => {
               value={comment}
               onChange={(e) => setComment(e.target.value)}
             />
-            <button
-              type="button"
-              className="bg-red-500 text-white rounded-full px-6 py-2 font-semibold text-base outline-none"
-              onClick={addComment}
-            >
-              {addingComment ? "posting..." : "post"}
-            </button>
+            {addingComment ? (
+              <button
+                type="button"
+                className="bg-red-500 text-white rounded-full px-6 py-2 font-semibold text-base outline-none"
+                onClick={addComment}
+              >
+                <AiOutlineLoading3Quarters className="animate-spin m-auto font-bold" />
+              </button>
+            ) : (
+              <button
+                type="button"
+                className="bg-red-500 text-white rounded-full px-6 py-2 font-semibold text-base outline-none"
+                onClick={addComment}
+              >
+                post
+              </button>
+            )}
           </div>
         </div>
       </div>

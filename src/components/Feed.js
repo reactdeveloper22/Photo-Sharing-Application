@@ -5,6 +5,8 @@ import MasonryLayout from "./MasonryLayout";
 import Spinner from "./Spinner";
 import { searchQuery, feedQuery } from "../utils/data";
 
+import NoPins from "./NoPins";
+
 const Feed = () => {
   const [loading, setloading] = useState(false);
   const { categoryId } = useParams();
@@ -33,7 +35,7 @@ const Feed = () => {
   if (loading)
     return <Spinner message={`We are adding  ideas to your feed!`} />;
 
-  if (!pins?.length) return <h2>No Pins Available</h2>;
+  if (!pins?.length) return <NoPins />;
 
   return <div>{pins && <MasonryLayout pins={pins} />}</div>;
 };

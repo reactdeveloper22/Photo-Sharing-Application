@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
-import backgroundVideo from "../assets/share.mp4";
+import backgroundVideo from "../assets/background.mp4";
 import { client } from "../client";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { auth } from "../firebase";
