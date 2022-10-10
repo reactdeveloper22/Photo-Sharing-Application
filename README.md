@@ -1,6 +1,6 @@
 # Full Stack Photo Sharing Application with React Js
 
-<a href="https://twitterclone-gamma.vercel.app" target="_blank">![](https://img.shields.io/website-up-down-green-red/http/monip.org.svg)</a>
+<a href="https://photo-sharingo.netlify.app" target="_blank">![](https://img.shields.io/website-up-down-green-red/http/monip.org.svg)</a>
 ![](https://img.shields.io/badge/Maintained-Yes-indigo)
 ![](https://img.shields.io/github/forks/SashenJayathilaka/Photo-Sharing-Application.svg)
 ![](https://img.shields.io/github/stars/SashenJayathilaka/Photo-Sharing-Application.svg)
