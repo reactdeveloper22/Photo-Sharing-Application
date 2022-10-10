@@ -2,10 +2,12 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IoMdAdd, IoMdSearch } from "react-icons/io";
 
+import UserLogin from "./UserLogin";
+
 const Navbar = ({ searchTerm, setSearchTerm, user }) => {
   const navigate = useNavigate();
 
-  if (!user) return;
+  if (!user) return <UserLogin />;
 
   return (
     <div className="flex gap-2 md:gap-5 w-full mt-5 pb-7">

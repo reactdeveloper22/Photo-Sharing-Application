@@ -4,6 +4,7 @@ import MasonryLayout from "./MasonryLayout";
 import { client } from "../client";
 import { feedQuery, searchQuery } from "../utils/data";
 import Spinner from "./Spinner";
+import NoPins from "./NoPins";
 
 const Search = ({ searchTerm }) => {
   const [pins, setPins] = useState();
@@ -34,7 +35,9 @@ const Search = ({ searchTerm }) => {
       {loading && <Spinner message="Searching pins" />}
       {pins?.length !== 0 && <MasonryLayout pins={pins} />}
       {pins?.length === 0 && searchTerm !== "" && !loading && (
-        <div className="mt-10 text-center text-xl ">No Pins Found!</div>
+        <div className="mt-10 text-center text-xl ">
+          <NoPins />
+        </div>
       )}
     </div>
   );
